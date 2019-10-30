@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="300dp"
+    android:layout_height="350dp"
+    android:orientation="vertical"
+    android:paddingTop="20dp"
+    >
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/custom_dialog_active_day"
+        android:gravity="center"
+        android:textSize="15dp"
+        android:textColor="#000000"
+        android:layout_marginLeft="20dp"
+        />
+
+    <TextView
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/boder_lectangle"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:text=""
+        android:id="@+id/dialogDate"
+        android:gravity="center"
+        android:textSize="15dp"/>
+
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/custom_dialog_title"
+        android:gravity="center"
+        android:textSize="15dp"
+        android:textColor="#000000"
+        android:layout_marginLeft="20dp"
+        />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:id="@+id/dialogSubject"
+        android:gravity="center"
+        android:textSize="15dp"
+        android:hint="@string/custom_dialog_title_hint"
+        android:background="@drawable/boder_lectangle"
+        android:layout_marginBottom="20dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/custom_dialog_content"
+        android:layout_marginLeft="20dp"
+        android:textSize="15dp"
+        android:textColor="#000000"/>
+    <EditText
+        android:id="@+id/dialogEdit"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+
+        android:textSize="15dp"
+        android:background="@drawable/boder_lectangle"
+        android:gravity="center"
+        android:hint="@string/custom_dialog_content_hint"
+
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="right">
+        <Button
+            android:id="@+id/dialogSignBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/custom_dialog_sign_button"/>
+        <Button
+            android:id="@+id/dialogCancelBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/custom_dialog_cancel_butotn"/>
+    </LinearLayout>
+</LinearLayout>

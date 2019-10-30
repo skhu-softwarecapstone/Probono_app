@@ -1,0 +1,26 @@
+<resources>
+    <string name="list_font_size">24dp</string>
+    <string name="app_name">더 봄</string>
+    <string name="tab_text_1">Tab 1</string>
+    <string name="tab_text_2">Tab 2</string>
+    <string name="calendar_maxDate">01/01/2030</string>
+
+    <!-- costom_dialog resourcese -->
+    <string name="custom_dialog_active_day">활동 날짜</string>
+    <string name="custom_dialog_title">글 제목</string>
+    <string name="custom_dialog_title_hint">제목을 입력하세요</string>
+    <string name="custom_dialog_content">글 내용</string>
+    <string name="custom_dialog_content_hint">내용을 입력하세요</string>
+    <string name="custom_dialog_sign_button">등록</string>
+    <string name="custom_dialog_cancel_butotn">취소</string>
+
+    <!-- calendar_layout resourcese-->
+    <string name="calendar_layout_repair_button">수정</string>
+
+    <!-- notice_layout resourcese -->
+    <string name="notice_layout_paging_button_size">90px</string>
+
+    <string name="invalid_username">형식이 일치하지 않습니다!</string>
+    <string name="invalid_password">6글자 이상 입력해 주세요!</string>
+    <string name="login_failed">"Login failed"</string>
+</resources>
