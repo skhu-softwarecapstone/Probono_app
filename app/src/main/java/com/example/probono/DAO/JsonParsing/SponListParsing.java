@@ -8,13 +8,13 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-public class SponJsonParsing {
-    private String json;
+public class SponListParsing implements JsonParser<ArrayList<Spon>> {
+    @Override
+    public ArrayList<Spon> parse(String json) {
 
-    public SponJsonParsing(String json) {this.json = json;}
+        if(json == null) return null;
 
-    public void jsonParsing(ArrayList<Spon> sponList) {
-        if(json == null) return;
+        ArrayList<Spon> sponList = new ArrayList<>();
         try {
             JSONObject jsonObject = new JSONObject(json);
             JSONArray sponArray = jsonObject.getJSONArray("spons");
@@ -33,5 +33,6 @@ public class SponJsonParsing {
         } catch (JSONException e) {
             e.printStackTrace();
         }
+        return sponList;
     }
 }

@@ -96,7 +96,9 @@ public class RecyclerView_SimpleTextAdapter extends RecyclerView.Adapter<Recycle
     //전체 데이터 갯수 리턴
     @Override
     public int getItemCount() {
-        return mDataList.size();
+        if(mDataList!=null)
+            return mDataList.size();
+        return 0;
     }
 
 

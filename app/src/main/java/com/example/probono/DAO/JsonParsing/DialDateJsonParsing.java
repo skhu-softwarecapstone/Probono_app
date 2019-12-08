@@ -7,32 +7,33 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.lang.reflect.Array;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
-public class DialDateJsonParsing {
-    private String jsonData;
-    public DialDateJsonParsing(String data){
-        this.jsonData = data;
-    }
+public class DialDateJsonParsing implements JsonParser<ArrayList<Date>> {
 
-    public void jsonParsing(ArrayList<Date> dialDateList) {
-        if(jsonData == null) return;
+    @Override
+    public ArrayList<Date> parse(String jsonData) {
+        ArrayList<Date> dialDateList = new ArrayList();
 
-        SimpleDateFormat dataFormat = new SimpleDateFormat("yyyy-MM-dd");
+        //SimpleDateFormat dataFormat = new SimpleDateFormat("yyyy-MM-dd");
+        //dataFormat.parse(dialDateObject.getString("date"))
         try {
-            JSONObject jsonObject = new JSONObject(jsonData);
-            JSONArray dialogDates = jsonObject.getJSONArray("dates");
+            //JSONObject jsonObject = new JSONObject(jsonData);
+            JSONArray dialogDates = new JSONArray(jsonData);
+
+
             for(int i=0; i<dialogDates.length(); i++) {
                 JSONObject dialDateObject = dialogDates.getJSONObject(i);
-                dialDateList.add(dataFormat.parse(dialDateObject.getString("date")));
+                dialDateList.add(new Date(dialDateObject.getString("date")));
             }
-        } catch (JSONException e) {
+        } catch (Exception e) {
             e.printStackTrace();
-        }catch(ParseException pe){
-            pe.printStackTrace();
         }
+
+        return dialDateList;
     }
 }

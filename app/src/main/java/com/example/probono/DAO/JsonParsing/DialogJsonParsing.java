@@ -6,30 +6,33 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
-public class DialogJsonParsing {
-    String data;
+public class DialogJsonParsing implements JsonParser<DialogData>{
 
-    public DialogJsonParsing(String data){
-        this.data = data;
-    }
-    public void jsonParsing(DialogData dialogData) {
-        if(data == null) return;
+    @Override
+    public DialogData parse(String data) {
+        if(data == null) return null;
+
+        DialogData dialogData = new DialogData( );
         try {
             JSONObject jsonObject = new JSONObject(data);
-            JSONArray dialogDates = jsonObject.getJSONArray("dailylog");
-            for(int i=0; i<dialogDates.length(); i++) {
-                JSONObject dialDateObject = dialogDates.getJSONObject(i);
+            //JSONArray dialogDates = jsonObject.getJSONArray("dailylog");
+            //for(int i=0; i<dialogDates.length(); i++) {
+                //SONObject dialDateObject = dialogDates.getJSONObject(i);
 
-                dialogData.setTitle(dialDateObject.getString("title"));
-                dialogData.setDate(dialDateObject.getString("date"));
-                dialogData.setContent(dialDateObject.getString("content"));
-            }
+                dialogData.setTitle(jsonObject.getString("seniorName"));
+                dialogData.setDate(new SimpleDateFormat("yyyy-MM-dd").format(new Date(jsonObject.getString("date"))));
+                dialogData.setContent(jsonObject.getString("content"));
+                dialogData.setdNo(jsonObject.getInt("dNo"));
+            //}
 
         } catch (JSONException e) {
             e.printStackTrace();
         }
-    }
 
+        return dialogData;
+    }
 }

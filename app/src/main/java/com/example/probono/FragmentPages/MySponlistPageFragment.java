@@ -101,57 +101,5 @@ public class MySponlistPageFragment extends Fragment {
         });
     }
 
-//    public class NetworkTask extends AsyncTask<Void, Void, String> {
-//
-//        private String url;
-//        private ContentValues values;
-//        private CountJsonParsing countJsonParsing;
-//        private View view;
-//        public NetworkTask(String url, ContentValues values, View view) {
-//            this.url = url;
-//            this.values = values;
-//            this.view = view;
-//        }
-//
-//        @Override
-//        protected String doInBackground(Void... params) {
-//            String result; //요청 결과를 저장할 변수
-//            RequestHttpURLConnection requestHttpURLConnection = new RequestHttpURLConnection();
-//            result = requestHttpURLConnection.request(url, values); //해당 URL로부터 결과물을 얻어온다.
-//            System.out.println(url);
-//            return result;
-//        }
-//
-//        @Override
-//        protected void onPostExecute(String s) {
-//            super.onPostExecute(
-//                    s);
-    //doInBackground()로 부터 리턴된 값이 onPostExcute()의 매개변수로 넘어오므로  s를 출력한다.
-//            System.out.println(s);
-//            countJsonParsing = new CountJsonParsing(s);
-//            System.out.println(s);
-//            System.out.println(url);
-//
-//            itemCount = countJsonParsing.jsonParsing();
-//            System.out.println("--"+itemCount);
-//            if((itemCount%pageItems)>0 && itemCount>pageItems) {
-//                pageCount = itemCount/pageItems + 1;
-//            } else if(itemCount<=pageItems) {
-//                pageCount = 1;
-//            }else {
-//                pageCount = itemCount/pageItems;
-//            }
 
-//            for(int i=1; i<=pageCount; i++) {
-//                getTabLayout().addTab(tabLayout.newTab().setText(""+i));
-//            }
-
-//            if(url=="http://58.150.133.213:3000/process/one") {
-//                movieJsonParsing.jsonParsing(list);
-//                //RecyclerView에 Adpater 지정
-//                RecyclerView_SimpleTextAdapter adapter = new RecyclerView_SimpleTextAdapter(list, activity);
-//                notiRecyclerView.setAdapter(adapter);
-//            }
-//        }
-//    }
 }

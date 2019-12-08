@@ -1,27 +1,36 @@
-package com.example.probono.DailylogPageFragment;
+package com.example.probono.DTO;
 
 public class UserInfo {
     private String userId;
-    private String password;
+
     private String userName;
     private String telNumber;
     private String adress;
-    private String role;
-    private boolean loginSuccess=false;
+    private String loginSuccess;
+    private String loginFail;
+    private String password;
 
-    public String getRole() {
-        return role;
+    public String getPassword() {
+        return password;
     }
 
-    public void setRole(String role) {
-        this.role = role;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
-    public boolean getLoginSuccess() {
+    public String getLoginFail() {
+        return loginFail;
+    }
+
+    public void setLoginFail(String loginFail) {
+        this.loginFail = loginFail;
+    }
+
+    public String getLoginSuccess() {
         return loginSuccess;
     }
 
-    public void setLoginSuccess(boolean loginSuccess) {
+    public void setLoginSuccess(String loginSuccess) {
         this.loginSuccess = loginSuccess;
     }
 
@@ -31,14 +40,6 @@ public class UserInfo {
 
     public void setUserId(String userId) {
         this.userId = userId;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
     }
 
     public String getUserName() {

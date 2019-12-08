@@ -30,5 +30,21 @@
             android:id="@+id/spon_page_menu"
             android:title="후원하기"
             app:showAsAction="collapseActionView"/>
+        <item
+            android:icon="@drawable/receiver"
+            android:id="@+id/blind_notify"
+            android:title="사각지대신고"
+            app:showAsAction="collapseActionView"/>
+
+
+        <item
+            android:icon="@drawable/nfc_phone"
+            android:id="@+id/nfc_visitor"
+            android:title="방문확인 NFC"
+            app:showAsAction="collapseActionView"/>
+
+
+
+
     </group>
 </menu>

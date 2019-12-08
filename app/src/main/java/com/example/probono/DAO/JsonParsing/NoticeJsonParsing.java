@@ -18,15 +18,16 @@ public class NoticeJsonParsing {
         if(json == null) return;
         try {
             JSONObject jsonObject = new JSONObject(json);
-            JSONArray noticeArray = jsonObject.getJSONArray("notices");
+            JSONArray noticeArray = new JSONArray(jsonObject);
             for(int i=0; i<noticeArray.length(); i++) {
                 JSONObject noticeObject = noticeArray.getJSONObject(i);
                 Notice notice = new Notice();
 
-                notice.setId(Integer.parseInt(noticeObject.getString("id")));
                 notice.setTitle(noticeObject.getString("title"));
-                notice.setDate(noticeObject.getString("date"));
+                notice.setDate(noticeObject.getString("createDate"));
                 notice.setContent(noticeObject.getString("content"));
+                notice.setNo(noticeObject.getString("no"));
+                notice.setUserId(noticeObject.getString("userId"));
 
                 noticeList.add(notice);
             }
