@@ -6,19 +6,23 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 
+import com.example.probono.staticValue.Sv;
+
 public class NotilistViewPager_SimpleTextAdapter extends FragmentStatePagerAdapter {
     private int pageCount;
-    private String url = "http://58.150.133.213:3000/process/selectnotice";
+    private String url = Sv.noticeContent;
 
     public NotilistViewPager_SimpleTextAdapter(@NonNull FragmentManager fm, int pageCount) {
         super(fm);
         this.pageCount = pageCount;
+
+
     }
 
 
     @Override
     public Fragment getItem(int position) {
-        String currentUrl = url +"?index=" + (position);
+        String currentUrl = url  + (position+1);
         RecyclerViewFragment recyclerViewFragment = new RecyclerViewFragment(currentUrl);
         return recyclerViewFragment;
     }

@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="300dp"
-    android:layout_height="400dp"
+    android:layout_height="wrap_content"
     android:orientation="vertical"
     android:paddingTop="10dp"
+    android:background="@drawable/bg_round_corner"
     >
     <TextView
         android:gravity="center"
@@ -47,9 +48,13 @@
         android:orientation="horizontal"
         android:gravity="right">
         <Button
+            android:background="@drawable/bg_round_corner_gray"
             android:id="@+id/noti_dialog_check_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
             android:text="확인"/>
 
     </LinearLayout>

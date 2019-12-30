@@ -6,9 +6,11 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 
+import com.example.probono.staticValue.Sv;
+
 public class SponViewPager_SimpleTextAdapter extends FragmentStatePagerAdapter {
     private int pageCount;
-    private String url = "http://58.150.133.213:3000/process/selectspon";
+    private String url = Sv.selectSpon;
 
     public SponViewPager_SimpleTextAdapter(@NonNull FragmentManager fm, int pageCount) {
         super(fm);

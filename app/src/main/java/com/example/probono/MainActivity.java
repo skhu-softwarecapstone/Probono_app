@@ -15,7 +15,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.LinearLayout;
 
-import com.example.probono.DailylogPageFragment.HttpClient;
+import com.example.probono.FragmentPages.BlindPageFragment;
 import com.example.probono.FragmentPages.DailylogPageFragment;
 import com.example.probono.FragmentPages.HomePageFragment;
 import com.example.probono.FragmentPages.MySponlistPageFragment;
@@ -24,7 +24,6 @@ import com.example.probono.FragmentPages.SponPageFragment;
 import com.google.android.material.navigation.NavigationView;
 
 public class MainActivity extends AppCompatActivity {
-
     //DrawerLayout 받아올 객체 선언
     private DrawerLayout drawerLayout;
     //NavigationView를 받아올 객체 선언
@@ -43,8 +42,8 @@ public class MainActivity extends AppCompatActivity {
 
         this.intent = getIntent();
 
-        userid = intent.getStringExtra("userId");
-        role = intent.getStringExtra("userRole");
+        userid = (String)intent.getStringExtra("userId");
+        role = (String)intent.getStringExtra("userRole");
 
         //ToolBar 초기화
         initializeAppBar();
@@ -52,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
         initializeDraewr();
         //NavigationEvent 초기화
         setNavigationEventHandler();
-        HttpClient.initClient();
+
        //화면 전환 프래그먼트 선언 및 초기 화면 설정
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.transition_view_page, new HomePageFragment()).commit();
@@ -103,6 +102,14 @@ public class MainActivity extends AppCompatActivity {
                             return true;
                         case R.id.spon_page_menu:
                             replaceTransitionPageFragment(new SponPageFragment());
+                            return true;
+                        case R.id.blind_notify:
+                            replaceTransitionPageFragment(new BlindPageFragment());
+                            return true;
+                        case R.id.nfc_visitor:
+                            Intent intent = new Intent(getApplicationContext(), NfcVisitor.class);
+                            intent.putExtra("userId", userid);
+                            startActivity(intent);
                             return true;
                     }
 

@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="300dp"
+    android:layout_height="350dp"
+    android:orientation="vertical"
+    android:paddingTop="20dp"
+    android:background="@drawable/bg_round_corner"
+    >
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="날짜"
+        android:gravity="center"
+        android:textSize="15dp"
+        android:textColor="#000000"
+        android:layout_marginLeft="20dp"
+        />
+
+    <TextView
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/boder_lectangle"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:text=""
+        android:id="@+id/blindDate"
+        android:gravity="center"
+        android:textSize="15dp"/>
+
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="제목"
+        android:gravity="center"
+        android:textSize="15dp"
+        android:textColor="#000000"
+        android:layout_marginLeft="20dp"
+        />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:id="@+id/blindSubject"
+        android:gravity="center"
+        android:textSize="15dp"
+        android:hint="제목을 입력하세요"
+        android:background="@drawable/boder_lectangle"
+        android:layout_marginBottom="20dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="내용"
+        android:layout_marginLeft="20dp"
+        android:textSize="15dp"
+        android:textColor="#000000"/>
+    <EditText
+        android:id="@+id/blindEdit"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+
+        android:textSize="15dp"
+        android:background="@drawable/boder_lectangle"
+        android:gravity="center"
+        android:hint="내용을 입력하세요"
+
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="right">
+        <Button
+            android:id="@+id/blindSignBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_round_corner_gray"
+            android:layout_marginHorizontal="10dp"
+            android:text="@string/custom_dialog_sign_button"/>
+        <Button
+            android:id="@+id/blindCancelBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_round_corner_gray"
+            android:layout_marginHorizontal="10dp"
+            android:text="@string/custom_dialog_cancel_butotn"/>
+    </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/blindNo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        />
+</LinearLayout>

@@ -6,9 +6,11 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 
+import com.example.probono.R;
+
 public class MySponlistViewPager_SimpleTextAdapter extends FragmentStatePagerAdapter {
     private int pageCount;
-    private String url = "http://58.150.133.213:3000/process/select_mysponlist";
+    private String url = R.string.server_ip+"/process/select_mysponlist";
     private String userid ;
     public MySponlistViewPager_SimpleTextAdapter(@NonNull FragmentManager fm, int pageCount, String userid) {
         super(fm);

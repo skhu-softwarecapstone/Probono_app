@@ -4,6 +4,7 @@
     android:layout_height="400dp"
     android:orientation="vertical"
     android:paddingTop="10dp"
+    android:background="@drawable/bg_round_corner"
     >
     <TextView
         android:gravity="center"
@@ -86,6 +87,7 @@
             android:id="@+id/spon_dialog_cancel_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:background="@drawable/bg_round_corner_gray"
             android:text="취소"/>
 
     </LinearLayout>

@@ -7,6 +7,17 @@ public class DialogData {
     private String date;
     private String title;
     private String content;
+
+    public int getdNo() {
+        return dNo;
+    }
+
+    public void setdNo(int dNo) {
+        this.dNo = dNo;
+    }
+
+    private int dNo;
+
     public DialogData(){
 
     }

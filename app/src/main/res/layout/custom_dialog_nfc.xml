@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="300dp"
+    android:layout_height="150dp"
+    android:orientation="vertical"
+    android:paddingTop="20dp">
+
+    <TextView
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+
+        android:text="NFC를 설정하시겠습니까?"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+    <Button
+        android:layout_weight="1"
+        android:text="확인"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_round_corner_gray"
+        android:id="@+id/go_nfc_setting"/>
+        <Button
+            android:layout_weight="1"
+            android:text="취소"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_round_corner_gray"
+            android:id="@+id/no_nfc_setting"/>
+    </LinearLayout>
+
+</LinearLayout>
