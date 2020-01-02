@@ -1,5 +1,6 @@
 package com.example.probono.FragmentPages;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -14,13 +15,20 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
-import com.example.probono.DAO.NetworkTask.HomeNetworkTaskHandler;
+import com.example.probono.DAO.JsonParsing.JsonParser;
+import com.example.probono.DAO.JsonParsing.NotiListJsonParsing;
+import com.example.probono.DAO.JsonParsing.SponListParsing;
+import com.example.probono.DAO.NetworkTask.JsonNetworkTask;
+import com.example.probono.DTO.Notice;
+import com.example.probono.DTO.Spon;
 import com.example.probono.HomePageFragment_components.SliderImagesPagerAdapter;
 import com.example.probono.MainActivity;
-import com.example.probono.DTO.Movie;
 import com.example.probono.DAO.NetworkTask.NetworkTask;
 import com.example.probono.R;
+import com.example.probono.staticValue.Sv;
 import com.google.android.material.tabs.TabLayout;
+
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 
@@ -33,9 +41,6 @@ public class HomePageFragment extends Fragment {
     private RecyclerView sponRecyclerView;
     private SliderImagesPagerAdapter imagesPagerAdapter;
     private MainActivity activity;
-    private ArrayList<Movie> list1;
-    private ArrayList<Movie> list2;
-    private String data;
     View view;
 
     //slider On/Off 플래그
@@ -112,23 +117,44 @@ public class HomePageFragment extends Fragment {
     //recyclerView 초기화
     private void initializeRecyclerView(View view) {
         //리사이클러뷰에 표시할 데이터 리스트 생성.
-        String url = "http://58.150.133.213:3000/process/selectnotice?index=0";
-        String url2 = "http://58.150.133.213:3000/process/selectspon?index=0";
+        String url = Sv.noticeContent+"1";
+        String url2 = Sv.noticeContent+"1";
 
         notiRecyclerView = (RecyclerView)view.findViewById(R.id.home_noti_recyclerView);
         sponRecyclerView = (RecyclerView)view.findViewById(R.id.home_spon_recyclerView);
 
-        HomeNetworkTaskHandler homeNetworkTaskHandler = new HomeNetworkTaskHandler(url, null, notiRecyclerView,  view);
-        NetworkTask networkTask = new NetworkTask(homeNetworkTaskHandler);
-        networkTask.execute();
+        new notiTask(url, null, new NotiListJsonParsing()).execute();
+        new SponTask(url2, null, new SponListParsing()).execute();
 
-        HomeNetworkTaskHandler homeNetworkTaskHandler2 = new HomeNetworkTaskHandler(url2, null, sponRecyclerView,  view);
-        NetworkTask networkTask2 = new NetworkTask(homeNetworkTaskHandler2);
-        networkTask2.execute();
 
         //RecyclerView에 LinearLayoutManager 객체 지정
         notiRecyclerView.setLayoutManager(new LinearLayoutManager(activity.getApplicationContext()));
         sponRecyclerView.setLayoutManager(new LinearLayoutManager(activity.getApplicationContext()));
+    }
+    class notiTask extends JsonNetworkTask<ArrayList<Notice>>{
+        public notiTask(String url, JSONObject param, JsonParser<ArrayList<Notice>> parser) {
+            super(url, param, parser);
+        }
+        @Override
+        public void postTask(ArrayList<Notice> result) {
+            com.example.probono.NotilistPageFragment_components.RecyclerView_SimpleTextAdapter adapter =
+                    new com.example.probono.NotilistPageFragment_components.RecyclerView_SimpleTextAdapter(result, view);
+            notiRecyclerView.setAdapter(adapter);
+        }
+    }
+
+    class SponTask extends JsonNetworkTask<ArrayList<Spon>>{
+
+        public SponTask(String url, JSONObject param, JsonParser<ArrayList<Spon>> parser) {
+            super(url, param, parser);
+        }
+
+        @Override
+        public void postTask(ArrayList<Spon> result) {
+            com.example.probono.SponPageFragment_components.RecyclerView_SimpleTextAdapter adapter =
+                    new com.example.probono.SponPageFragment_components.RecyclerView_SimpleTextAdapter(result, view);
+            sponRecyclerView.setAdapter(adapter);
+        }
     }
 
     //tabLayout 이벤트 설정 - viewPager 연동

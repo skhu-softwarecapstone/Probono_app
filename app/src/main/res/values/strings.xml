@@ -23,4 +23,6 @@
     <string name="invalid_username">형식이 일치하지 않습니다!</string>
     <string name="invalid_password">6글자 이상 입력해 주세요!</string>
     <string name="login_failed">"Login failed"</string>
+
+    <string name="server_ip">http://58.150.133.224:3000</string>
 </resources>

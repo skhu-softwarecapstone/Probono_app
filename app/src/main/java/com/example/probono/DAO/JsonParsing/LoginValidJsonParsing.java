@@ -1,9 +1,7 @@
 package com.example.probono.DAO.JsonParsing;
 
-import com.example.probono.DailylogPageFragment.DialogData;
-import com.example.probono.DailylogPageFragment.UserInfo;
+import com.example.probono.DTO.UserInfo;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -17,14 +15,16 @@ public class LoginValidJsonParsing {
 
     public void jsonParsing(UserInfo userInfo) {
         if(data == null) return;
+        System.out.println(data);
         try {
+
             JSONObject jsonObject = new JSONObject(data);
-            JSONObject loginData = jsonObject.getJSONObject("login");
+            //JSONObject loginData = jsonObject.getJSONObject("");
 
 
-            userInfo.setUserId(loginData.getString("id"));
-            userInfo.setLoginSuccess(Boolean.parseBoolean(loginData.getString("success")));
-            userInfo.setRole(loginData.getString("role"));
+            userInfo.setUserId(jsonObject.getString("userEmail"));
+            userInfo.setLoginSuccess(jsonObject.getString("sucessMessage"));
+            userInfo.setLoginFail(jsonObject.getString("errorMessage"));
 
 
         } catch (JSONException e) {

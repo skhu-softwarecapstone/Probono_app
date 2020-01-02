@@ -1,10 +1,28 @@
 package com.example.probono.DTO;
 
 public class Notice {
-    private int id;
     private String date;
     private String title;
     private String content;
+    private String userId;
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
+    public String getNo() {
+        return no;
+    }
+
+    public void setNo(String no) {
+        this.no = no;
+    }
+
+    private String no;
 
     public Notice(String date, String title, String content) {
         this.date = date;
@@ -15,13 +33,6 @@ public class Notice {
     public Notice() {
     }
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
 
     public String getDate() {
         return date;

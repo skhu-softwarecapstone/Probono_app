@@ -22,8 +22,11 @@ public class NetworkTask extends AsyncTask<Void, Void, String> { //Params, Progr
         networkCallee.onPostExecute(s);
     }
 
+
     public interface NetworkCallee {
         public String doinBackground();
         public void onPostExecute(String s);
     }
+
+
 }

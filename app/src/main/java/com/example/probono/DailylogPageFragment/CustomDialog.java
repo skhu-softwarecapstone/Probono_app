@@ -25,8 +25,6 @@ public class CustomDialog extends Dialog {
 
         findViewById(R.id.dialogSignBtn).setOnClickListener(positiveListener);
         findViewById(R.id.dialogCancelBtn).setOnClickListener(negativeListener);
-
-
     }
 
     public CustomDialog(Context context) {
